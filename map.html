@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Map</title>
+    <!-- Include Leaflet.js -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+    <div id="map" style="height: 800px;"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        // Initialize a Leaflet map
+        var map = L.map('map').setView([-40.7128, -74.0060],18);
+        // 40.7128, -74.0060]
+        // working for 18   [-40.72436422, -74.02038574],
+        // 18/77175/163593               -40.72332346/-74.01626587
+
+        // working with x_18  -59.27570479, -44.62783813]
+
+
+
+        // Add a tile layer (replace 'http://localhost:5000' with your Flask app URL)
+        L.tileLayer('http://localhost:5000/images/{z}/{x}/{y}', {
+            maxZoom: 18,
+            minZoom: 10,
+            tms: true,
+        //     bounds: [
+        //        [0, 0],
+        //        [8, 894]
+        //    ]
+        }).addTo(map);
+    });
+    </script>
+</body>
+</html>
+
+<!-- http://localhost:5000/images/{z}/{x}/{y} -->
+
+
+
+
+<!-- https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/18/98530/77149 -->
+<!-- https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/18/98638/77273 -->
+
+
+<!-- https://c.tile.openstreetmap.org/18/77273/98638.png -->
